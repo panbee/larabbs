@@ -8401,3 +8401,11 @@ body {
   color: inherit;
 }
 
+/* user register page */
+
+.register-page img.captcha {
+  margin-bottom: 0;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
