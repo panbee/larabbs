@@ -38,5 +38,12 @@ class UsersTableSeeder extends Seeder
         $user->password = bcrypt('a12345678');
         $user->avatar = 'http://larabbs.com/uploads/images/avatars/201807/03/1_15305963060MFb64iEvm.jpg';
         $user->save();
+
+        // 初始化用户角色,将1号用户指派为站长
+        $user->assignRole('Founder');
+
+        // 将2号用户指派为管理员
+        $user = User::find(2);
+        $user->assignRole('Maintainer');
     }
 }
