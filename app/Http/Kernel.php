@@ -61,6 +61,9 @@ class Kernel extends HttpKernel
 
             // 记录用户最后活跃时间
             \App\Http\Middleware\RecordLastActivedTime::class,
+
+            // 生成分类列表
+            \App\Http\Middleware\GenerateCategoriesList::class
         ],
 
         // API 中间件组，应用于 routes/api.php 路由文件
