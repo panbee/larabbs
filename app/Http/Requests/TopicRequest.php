@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\SpamDetector;
+
 class TopicRequest extends Request
 {
     public function rules()
@@ -15,8 +17,9 @@ class TopicRequest extends Request
             case 'PATCH':
             {
                 return [
-                    'title' => 'required|min:2',
-                    'body'  => 'required|min:3',
+                    'title' => 'required|min:2|spam',
+                    //'title' => ['required','min:2',new SpamDetector],
+                    'body'  => 'required|min:3|spam',
                     'category_id'  =>   'required|numeric'
                 ];
             }
@@ -25,7 +28,7 @@ class TopicRequest extends Request
             default:
             {
                 return [];
-            };
+            }
         }
     }
 
